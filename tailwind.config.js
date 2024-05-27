@@ -4,4 +4,5 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plu
+  plugins: ["prettier-plugin-tailwindcss"],
+};
