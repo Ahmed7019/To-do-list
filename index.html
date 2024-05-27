@@ -14,9 +14,9 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="bg-gradient-to-tr from-green-200 via-teal-500 to-green-300 ">
+<body class="bg-gradient-to-tr from-green-200 via-teal-500 to-green-300 font-roboto">
     <header>
-        <div class="relative">
+        <div class="relative overflow-hidden">
             <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bW9ybmluZ3xlbnwwfDB8MHx8fDA%3D"
                 alt="sunrise">
             <div class="absolute bottom-0 left-0 bg-transparent backdrop-blur-sm w-full h-20 text-white">
@@ -26,43 +26,53 @@
         </div>
     </header>
     <main class="mx-8">
-        <h1 class="text-2xl font-bold">To do list</h1>
-        <section class="hidden">
-            <!-- Add - delete tasks -->
-            <!-- This section will stick to the bottom for mobile designs for better ux -->
-            <div>
-                <label for="add-task">Add task:</label>
-                <input type="text" placeholder="Add a task" id="add-task" name="add-task">
-            </div>
-            <div>
-                <label for="remove-task">Remove task:</label>
-                <input type="text" placeholder="Delete a task" id="remove-task" name="remove-task">
-            </div>
-
-        </section>
-
-        <!-- Section of the current tasks -->
-        <section class="my-8">
-            <div>
-                <h2>Tasks</h2>
-                <div class="task-container">
-                    <!-- <div>
-                        <p>task one</p>
-                        <label for="done">Completed</label>
-                        <input type="checkbox" name="done" id="">
-                    </div> -->
+        <div class="bg-slate-50/50 backdrop-blur-md p-4 my-4 rounded-2xl ">
+            <h1 class="text-2xl font-bold my-4">To do list</h1>
+            <section class="hidden">
+                <!-- Add - delete tasks -->
+                <!-- This section will stick to the bottom for mobile designs for better ux -->
+                <div>
+                    <label for="add-task">Add task:</label>
+                    <input type="text" placeholder="Add a task" id="add-task" name="add-task">
+                </div>
+                <div>
+                    <label for="remove-task">Remove task:</label>
+                    <input type="text" placeholder="Delete a task" id="remove-task" name="remove-task">
                 </div>
 
-                <div class="competed-tasks">
+            </section>
 
+            <!-- Section of the current tasks -->
+            <section class="my-8">
+                <div>
+                    <h2 class="text-xl font-semibold">My Tasks</h2>
+                    <div class="task-container flex flex-col justify-between gap-y-4">
+                        Tasks here
+                        <!-- <div>
+                            <p>task one</p>
+                            <label for="done">Completed</label>
+                            <input type="checkbox" name="done" id="">
+                        </div>
+                        <div>
+                            <p>task one</p>
+                            <label for="done">Completed</label>
+                            <input type="checkbox" name="done" id="">
+                        </div> -->
+
+
+                    </div>
+
+                    <div class="competed-tasks">
+                        <p>Completed tasks</p>
+                    </div>
                 </div>
-            </div>
-        </section>
-
+            </section>
+        </div>
         <!-- Add button  -->
-        <div>
-            <button>
-                <i class="fa-solid fa-plus text-black"></i>
+        <div class="fixed right-6 bottom-8">
+            <button
+                class="bg-neutral-700/80 backdrop-blur-sm p-4 h-12 w-12 rounded-[50%] flex justify-center items-center hover:animate-spin">
+                <i class="fa-solid fa-plus text-neutral-200 text-xl "></i>
             </button>
         </div>
     </main>
