@@ -667,8 +667,8 @@ video {
   border-radius: 50%;
 }
 
-.bg-blue-400\/50 {
-  background-color: rgb(96 165 250 / 0.5);
+.bg-neutral-700\/80 {
+  background-color: rgb(64 64 64 / 0.8);
 }
 
 .bg-slate-50\/50 {
@@ -677,23 +677,6 @@ video {
 
 .bg-transparent {
   background-color: transparent;
-}
-
-.bg-blue-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(96 165 250 / var(--tw-bg-opacity));
-}
-
-.bg-blue-400\/80 {
-  background-color: rgb(96 165 250 / 0.8);
-}
-
-.bg-neutral-800\/80 {
-  background-color: rgb(38 38 38 / 0.8);
-}
-
-.bg-neutral-700\/80 {
-  background-color: rgb(64 64 64 / 0.8);
 }
 
 .bg-gradient-to-tr {

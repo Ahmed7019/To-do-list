@@ -6,9 +6,7 @@ module.exports = {
       fontFamily: {
         roboto: ["Roboto", "sans-serif"],
       },
-      animation: {
-        
-      }
+      animation: {},
     },
   },
   plugins: ["prettier-plugin-tailwindcss"],

@@ -8,3 +8,10 @@ Started by mobile first design
 
 added images & background colors
 used Roboto as a font and gave the page some styles
+
+<!-- Features to add next -->
+ 
+ > When clicking the plus button it shows the option to add a new task 
+  [A popup with the name of the task and a save button to save it then returns back and add the task]
+
+  > Add a delete icon in order to delete the icon 
