@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do App</title>
+    <link rel="stylesheet" href="dist/output.css">
+    <link rel="stylesheet" href="src/input.css">
+</head>
+
+<body>
+    <main>
+
+        <section>
+            <!-- Add - delete tasks -->
+            <div>
+                <label for="add-task">Add task:</label>
+                <input type="text" placeholder="Add a task" id="add-task" name="add-task">
+            </div>
+            <div>
+                <label for="remove-task">Remove task:</label>
+                <input type="text" placeholder="Delete a task" id="remove-task">
+            </div>
+        </section>
+
+        <!-- Section of the current tasks -->
+        <section>
+            <div>
+                <h2>Tasks</h2>
+                <div class="task-container">
+
+                </div>
+            </div>
+        </section>
+        <script src="main.js"></script>
+    </main>
+</body>
+
+</html>
