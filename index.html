@@ -14,7 +14,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="bg-gradient-to-tr from-green-200 via-teal-500 to-green-300 font-roboto">
+<body class="bg-gradient-to-r from-[#0f7478] via-[#68dfe6]  to-[#a3fc67] font-roboto">
     <header>
         <div class="relative overflow-hidden">
             <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bW9ybmluZ3xlbnwwfDB8MHx8fDA%3D"
@@ -26,7 +26,7 @@
         </div>
     </header>
     <main class="mx-8">
-        <div class="bg-slate-50/50 backdrop-blur-md p-4 my-4 rounded-2xl">
+        <section class="bg-slate-50/50 backdrop-blur-md p-4 my-4 rounded-2xl w-full h-full">
             <h1 class="text-2xl font-bold my-4">To do list</h1>
             <section class="hidden">
                 <!-- Add - delete tasks -->
@@ -46,7 +46,7 @@
                 <div>
                     <h2 class="text-xl font-semibold">My Tasks</h2>
                     <div class="task-container flex flex-col justify-between gap-y-4">
-                        Tasks here
+                        <p>Tasks here</p>
                         <!-- <div>
                             <p>task one</p>
                             <label for="done">Completed</label>
@@ -64,7 +64,7 @@
                     </div>
                 </div>
             </section>
-        </div>
+        </section>
 
         <!-- Add button  -->
         <div class="fixed right-6 bottom-8">
@@ -75,7 +75,7 @@
         </div>
 
         <!-- The task information -->
-        <div class="grid place-items-center"> <!-- This is the container of the content -->
+        <div class="hidden place-items-center"> <!-- This is the container of the content -->
             <div class="absolute top-40">
                 <div
                     class="grid place-items-center justify-center  bg-gradient-to-br from-neutral-300/50 via-zinc-700/50 to-zinc-900/50 relative w-[18rem] h-[16rem] rounded-lg ">
