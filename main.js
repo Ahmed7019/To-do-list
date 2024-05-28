@@ -11,7 +11,7 @@ let addTaskInput = document.querySelector("#input-task"),
 let createTask = (taskName) => {
   let task = document.createElement("div");
   let taskContent = `
-    <p class="">${taskName}</p>
+    <p>${taskName}</p>
     <div class="flex justify-center items-center">
   <label class="container">
     <input
@@ -23,10 +23,20 @@ let createTask = (taskName) => {
     ></span>
   </label>
   </div>
+  <button class="absolute text-md right-3 top-1 text-black">...</button>
     `;
   task.classList.add(
-    "flex", "justify-between", "bg-blue-600","items-center",
-  "px-2","py-4","rounded-md","text-neutral-200" ,"text-lg");
+    "relative",
+    "flex",
+    "justify-between",
+    "bg-teal-400",
+    "items-center",
+    "px-2",
+    "py-8",
+    "rounded-md",
+    "text-neutral-200",
+    "text-lg"
+  );
   task.innerHTML = taskContent;
   tasksContainer.appendChild(task);
 };
@@ -63,6 +73,7 @@ if (taskPopup.classList.contains("grid")) {
   }
 }
 
+// the plus button functionality
 addTaskInput.addEventListener("input", () => {
   if (addTaskInput.value !== "") {
     // Add the new task to the container
@@ -73,6 +84,7 @@ addTaskInput.addEventListener("input", () => {
   }
 });
 
+// Add the task to the body of the website on clicking save
 saveBtn.addEventListener("click", () => {
   if (addTaskInput.value !== "") {
     createTask(addTaskInput.value);
