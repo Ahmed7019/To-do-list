@@ -23,7 +23,7 @@ let createTask = (taskName) => {
     ></span>
   </label>
   </div>
-  <button class="absolute text-md right-3 top-1 text-black">...</button>
+  <button class="absolute text-xl font-bold right-3 top-0 text-black">...</button>
     `;
   task.classList.add(
     "relative",

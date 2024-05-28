@@ -660,6 +660,10 @@ video {
   right: 0.75rem;
 }
 
+.top-0 {
+  top: 0px;
+}
+
 .mx-8 {
   margin-left: 2rem;
   margin-right: 2rem;
