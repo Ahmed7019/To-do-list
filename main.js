@@ -12,9 +12,21 @@ let createTask = (taskName) => {
   let task = document.createElement("div");
   let taskContent = `
     <p class="">${taskName}</p>
-    <input type="checkbox" >
+    <div class="flex justify-center items-center">
+  <label class="container">
+    <input
+      class="peer cursor-pointer hidden after:opacity-100"
+      type="checkbox"
+    />
+    <span
+      class="inline-block w-5 h-5 border-2 border-black relative cursor-pointer after:content-[''] after:absolute after:top-2/4 after:left-2/4 after:-translate-x-1/2 after:-translate-y-1/2 after:w-[10px] after:h-[10px] after:bg-[#333] after:rounded-[2px] after:opacity-0 peer-checked:after:opacity-100"
+    ></span>
+  </label>
+  </div>
     `;
-  task.classList.add("flex", "justify-between");
+  task.classList.add(
+    "flex", "justify-between", "bg-blue-600","items-center",
+  "px-2","py-4","rounded-md","text-neutral-200" ,"text-lg");
   task.innerHTML = taskContent;
   tasksContainer.appendChild(task);
 };
@@ -66,4 +78,5 @@ saveBtn.addEventListener("click", () => {
     createTask(addTaskInput.value);
   }
   addTaskInput.value = "";
+  saveBtn.setAttribute("disabled", true);
 });
