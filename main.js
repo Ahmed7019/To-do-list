@@ -11,14 +11,12 @@ let addTaskInput = document.querySelector("#input-task"),
 let createTask = (taskName) => {
   let task = document.createElement("div");
   let taskContent = `
-    
-    <p>${taskName}</p>
-    <input type="checkbox" name="done" >
-    
+    <p class="">${taskName}</p>
+    <input type="checkbox" >
     `;
   task.classList.add("flex", "justify-between");
   task.innerHTML = taskContent;
-  document.body.appendChild(task);
+  tasksContainer.appendChild(task);
 };
 
 // Events when clicking the button
@@ -54,9 +52,18 @@ if (taskPopup.classList.contains("grid")) {
 }
 
 addTaskInput.addEventListener("input", () => {
-  if (addTaskInput.value !== "") saveBtn.removeAttribute("disabled");
-  else {
+  if (addTaskInput.value !== "") {
+    // Add the new task to the container
+    saveBtn.removeAttribute("disabled");
+  } else {
     addTaskInput.value === "";
     saveBtn.setAttribute("disabled", true);
   }
+});
+
+saveBtn.addEventListener("click", () => {
+  if (addTaskInput.value !== "") {
+    createTask(addTaskInput.value);
+  }
+  addTaskInput.value = "";
 });
