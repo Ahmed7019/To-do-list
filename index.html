@@ -45,7 +45,7 @@
             <section class="my-8">
                 <div>
                     <h2 class="text-xl font-semibold">My Tasks</h2>
-                    <div class="task-container flex flex-col justify-between gap-y-4">
+                    <div class=" flex flex-col justify-between gap-y-4" id="task-container">
                         <p>Tasks here</p>
                         <!-- <div>
                             <p>task one</p>
@@ -69,13 +69,13 @@
         <!-- Add button  -->
         <div class="fixed right-6 bottom-8">
             <button
-                class="bg-neutral-700/80 backdrop-blur-sm p-4 h-12 w-12 rounded-[50%] flex justify-center items-center hover:animate-spin">
+                class="bg-neutral-700/80 backdrop-blur-sm p-4 h-12 w-12 rounded-[50%] flex justify-center items-center hover:animate-spin" id="new-task">
                 <i class="fa-solid fa-plus text-neutral-200 text-xl "></i>
             </button>
         </div>
 
         <!-- The task information -->
-        <div class="hidden place-items-center"> <!-- This is the container of the content -->
+        <div class="hidden place-items-center" id="task-info"> <!-- This is the container of the content -->
             <div class="absolute top-40">
                 <div
                     class="grid place-items-center justify-center  bg-gradient-to-br from-neutral-300/50 via-zinc-700/50 to-zinc-900/50 relative w-[18rem] h-[16rem] rounded-lg ">
@@ -90,7 +90,7 @@
                         <div>
                             <input type="text" placeholder="Task name"
                                 class="bg-[#292929] border-2 border-[#3e3e3e] rounded-lg text-white px-6 py-3 text-base hover:border-[#fff] cursor-pointer transition"
-                                type="text">
+                                id="add-task">
                         </div>
                     </div>
                 </div>
