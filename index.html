@@ -65,12 +65,32 @@
                 </div>
             </section>
         </div>
+
         <!-- Add button  -->
         <div class="fixed right-6 bottom-8">
             <button
                 class="bg-neutral-700/80 backdrop-blur-sm p-4 h-12 w-12 rounded-[50%] flex justify-center items-center hover:animate-spin">
                 <i class="fa-solid fa-plus text-neutral-200 text-xl "></i>
             </button>
+        </div>
+
+        <!-- The task information -->
+        <div class="grid place-items-center"> <!-- This is the container of the content -->
+            <div class="absolute top-40">
+                <div
+                    class="grid place-items-center justify-center  bg-gradient-to-br from-neutral-300 via-teal-700 to-green-900 relative w-[18rem] h-[18rem] rounded-lg ">
+                    <div
+                        class="bg-gradient-to-tr from-neutral-200/50 via-teal-500/50 to-green-700/50 backdrop-blur-md w-[17.9rem] h-[17.9rem] left-[.1rem] top-[.1rem] rounded-lg absolute p-4 ">
+                        <div>
+                            <button>Save</button>
+                            <button>Close</button>
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Task" class="placeholder:text-neutral-300 ">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
