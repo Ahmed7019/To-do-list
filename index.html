@@ -78,15 +78,19 @@
         <div class="grid place-items-center"> <!-- This is the container of the content -->
             <div class="absolute top-40">
                 <div
-                    class="grid place-items-center justify-center  bg-gradient-to-br from-neutral-300 via-teal-700 to-green-900 relative w-[18rem] h-[18rem] rounded-lg ">
+                    class="grid place-items-center justify-center  bg-gradient-to-br from-neutral-300/50 via-zinc-700/50 to-zinc-900/50 relative w-[18rem] h-[16rem] rounded-lg ">
                     <div
-                        class="bg-gradient-to-tr from-neutral-200/50 via-teal-500/50 to-green-700/50 backdrop-blur-md w-[17.9rem] h-[17.9rem] left-[.1rem] top-[.1rem] rounded-lg absolute p-4 ">
-                        <div>
-                            <button>Save</button>
-                            <button>Close</button>
+                        class="bg-gradient-to-tr from-zinc-200/50 via-teal-zinc/50 to-zinc-700/50 backdrop-blur-md w-[17.9rem] h-[15.9rem] left-[.1rem] top-[.1rem] rounded-lg absolute p-4 ">
+                        <div class="flex gap-x-2 justify-end mb-8">
+                            <button class="px-2 py-1 bg-blue-500 backdrop-blur-md text-white  rounded-md"
+                                id="save-btn">Add</button>
+                            <button class="px-2 py-1 bg-neutral-50 backdrop-blur-md text-red-500  rounded-md"
+                                id="colse-btn">Close</button>
                         </div>
                         <div>
-                            <input type="text" placeholder="Task" class="placeholder:text-neutral-300 ">
+                            <input type="text" placeholder="Task name"
+                                class="bg-[#292929] border-2 border-[#3e3e3e] rounded-lg text-white px-6 py-3 text-base hover:border-[#fff] cursor-pointer transition"
+                                type="text">
                         </div>
                     </div>
                 </div>
