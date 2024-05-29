@@ -28,4 +28,4 @@ Add the current date to the Image above
 
 Added the tasks to the user local storage and receive tasks on windows load from it
 
-
+Next I'll add the completed tasks section + the delete button
