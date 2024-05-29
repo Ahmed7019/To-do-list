@@ -6,6 +6,7 @@ let addTaskInput = document.querySelector("#input-task"),
   completedTasks = document.querySelector("#competed-tasks"),
   taskPopup = document.querySelector("#task-info"); // The task information popup
 
+let myTasks = [];
 // First add a function to create new task
 
 let createTask = (taskName) => {
@@ -39,6 +40,23 @@ let createTask = (taskName) => {
   );
   task.innerHTML = taskContent;
   tasksContainer.appendChild(task);
+  let obj = {
+    task: taskName,
+    checked: false,
+  };
+  myTasks.push(obj);
+  window.localStorage.setItem("my tasks", JSON.stringify(myTasks));
+};
+
+// Retrive the tasks on window load
+
+window.onload = () => {
+  let tasksArray = JSON.parse(window.localStorage.getItem("my tasks"));
+  if (tasksArray.length > 0) {
+    for (let i = 0; i < tasksArray.length; i++) {
+      createTask(tasksArray[i].task);
+    }
+  }
 };
 
 // Events when clicking the button
@@ -47,7 +65,7 @@ newTask.addEventListener("click", () => {
   taskPopup.classList.add("grid");
   if (addTaskInput.value !== "") saveBtn.removeAttribute("disabled");
   else {
-    saveBtn.setAttribute("disabled");
+    saveBtn.setAttribute("disabled", true);
   }
 });
 
@@ -98,22 +116,21 @@ saveBtn.addEventListener("click", () => {
 let todayParagraph = document.querySelector("#today-date"),
   myDate = new Date();
 
-  function days(day) {
-    // for day of the week
-    const daysOfTheWeek = [
-      "Saturday",
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-    ];
-    return daysOfTheWeek[day];
-  }
+function days(day) {
+  // for day of the week
+  const daysOfTheWeek = [
+    "Saturday",
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+  ];
+  return daysOfTheWeek[day];
+}
 
-
-  // Function to get names of the months
+// Function to get names of the months
 function months(month) {
   const monthsOfTheYear = [
     "Jan",
@@ -131,6 +148,5 @@ function months(month) {
   ];
   return monthsOfTheYear[month];
 }
-
 
 todayParagraph.textContent = `${days(myDate.getDay())} / ${months(myDate.getMonth())} / ${myDate.getFullYear()}`;
