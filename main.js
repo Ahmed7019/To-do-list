@@ -92,3 +92,45 @@ saveBtn.addEventListener("click", () => {
   addTaskInput.value = "";
   saveBtn.setAttribute("disabled", true);
 });
+
+// Show todays date on the screen
+
+let todayParagraph = document.querySelector("#today-date"),
+  myDate = new Date();
+
+  function days(day) {
+    // for day of the week
+    const daysOfTheWeek = [
+      "Saturday",
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+    ];
+    return daysOfTheWeek[day];
+  }
+
+
+  // Function to get names of the months
+function months(month) {
+  const monthsOfTheYear = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  return monthsOfTheYear[month];
+}
+
+
+todayParagraph.textContent = `${days(myDate.getDay())} / ${months(myDate.getMonth())} / ${myDate.getFullYear()}`;
