@@ -114,22 +114,23 @@ saveBtn.addEventListener("click", () => {
 // Here add the psuedo element to delete the task on clicking the options button
 
 let option = document.querySelectorAll("#task-setting");
-
 option.forEach((opt) => {
-  opt.addEventListener("click", () => {
-    opt.classList.add(
-      "before:content-trash ",
-      "before:font-fontawesome ",
-      "before:font-fa-solid",
-      " before:text-sm",
-      " before:text-red-500",
-      " before:absolute",
-      " before:-top-4 ",
-      "before:right-1 ",
-      "before:bg-white/50",
-      "before:p-1"
-    );
-  });
+  opt.nextElementSibling.classList.remove("hidden");
+  opt.nextElementSibling.classList.add("block");
+  // opt.addEventListener("click", () => {
+  //   opt.classList.add(
+  //     "before:content-trash",
+  //     "before:font-fontawesome",
+  //     "before:font-fa-solid",
+  //     "before:text-sm",
+  //     "before:text-red-500",
+  //     "before:absolute",
+  //     "before:-top-4",
+  //     "before:right-1",
+  //     "before:bg-white/50",
+  //     "before:p-1"
+  //   );
+  // });
 });
 
 // Show todays date on the screen
