@@ -989,6 +989,73 @@ video {
   transition-duration: 150ms;
 }
 
+.before\:absolute::before {
+  content: var(--tw-content);
+  position: absolute;
+}
+
+.before\:-top-4::before {
+  content: var(--tw-content);
+  top: -1rem;
+}
+
+.before\:right-1::before {
+  content: var(--tw-content);
+  right: 0.25rem;
+}
+
+.before\:bg-white\/50::before {
+  content: var(--tw-content);
+  background-color: rgb(255 255 255 / 0.5);
+}
+
+.before\:p-2::before {
+  content: var(--tw-content);
+  padding: 0.5rem;
+}
+
+.before\:p-1::before {
+  content: var(--tw-content);
+  padding: 0.25rem;
+}
+
+.before\:font-fontawesome::before {
+  content: var(--tw-content);
+  font-family: "Font Awesome 5 Free";
+}
+
+.before\:text-sm::before {
+  content: var(--tw-content);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.before\:font-fa-solid::before {
+  content: var(--tw-content);
+  font-weight: 900;
+}
+
+.before\:text-red-500::before {
+  content: var(--tw-content);
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
+.before\:content-\[\'\\f2ed\'\]::before {
+  --tw-content: '\f2ed';
+  content: var(--tw-content);
+}
+
+.before\:content-\[\'trash\'\]::before {
+  --tw-content: 'trash';
+  content: var(--tw-content);
+}
+
+.before\:content-trash::before {
+  --tw-content: "\f2ed";
+  content: var(--tw-content);
+}
+
 .after\:absolute::after {
   content: var(--tw-content);
   position: absolute;

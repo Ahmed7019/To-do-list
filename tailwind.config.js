@@ -3,10 +3,16 @@ module.exports = {
   content: ["*{.html,js}"],
   theme: {
     extend: {
+      content: {
+        trash: '"\\f2ed"',
+      },
       fontFamily: {
         roboto: ["Roboto", "sans-serif"],
+        fontawesome: ['"Font Awesome 5 Free"'],
       },
-      animation: {},
+      fontWeight: {
+        "fa-solid": "900",
+      },
     },
   },
   plugins: ["prettier-plugin-tailwindcss"],
