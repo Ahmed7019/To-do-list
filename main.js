@@ -141,13 +141,13 @@ let todayParagraph = document.querySelector("#today-date"),
 function days(day) {
   // for day of the week
   const daysOfTheWeek = [
-    "Saturday",
     "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
     "Thursday",
     "Friday",
+    "Saturday"
   ];
   return daysOfTheWeek[day];
 }
