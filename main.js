@@ -136,7 +136,16 @@ let trashButton = () => {
         opt.classList.remove("before:content-trash");
       });
     });
+
+    // Here add functionality to the button
+    
   });
+};
+
+// Create a delete function
+
+let deleteTask = (task) => {
+  document.removeChild(task);
 };
 
 // Show todays date on the screen
