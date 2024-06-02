@@ -20,22 +20,25 @@ let createTask = (taskName) => {
       type="checkbox"
     />
     <span
-      class="inline-block w-5 h-5 border-2 border-black relative cursor-pointer after:content-[''] after:absolute after:top-2/4 after:left-2/4 after:-translate-x-1/2 after:-translate-y-1/2 after:w-[10px] after:h-[10px] after:bg-[#333] after:rounded-[2px] after:opacity-0 peer-checked:after:opacity-100"
+      class="inline-block w-5 h-5 border-2 border-white relative cursor-pointer after:content-[''] after:absolute after:top-2/4 after:left-2/4 after:-translate-x-1/2 after:-translate-y-1/2 after:w-[10px] after:h-[10px] after:bg-[#cfcfcf] after:rounded-[2px] after:opacity-0 peer-checked:after:opacity-100"
     ></span>
   </label>
   </div>
-  <button class="absolute text-xl font-bold right-3 top-0 text-black " id="task-setting">...</button>
+  <button class="absolute text-xl font-bold right-3 top-0 text-neutral-300 " id="task-setting">...</button>
     `;
   task.classList.add(
     "relative",
     "flex",
     "justify-between",
-    "bg-teal-400",
+    "bg-gradient-to-tr",
+    "from-neutral-500",
+    "via-neutral-700",
+    "to-neutral-900",
     "items-center",
     "px-2",
     "py-8",
     "rounded-md",
-    "text-neutral-200",
+    "text-neutral-300",
     "text-lg"
   );
   task.innerHTML = taskContent;
@@ -147,7 +150,7 @@ function days(day) {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday"
+    "Saturday",
   ];
   return daysOfTheWeek[day];
 }
