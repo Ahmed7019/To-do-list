@@ -120,7 +120,7 @@ let trashButton = () => {
   let option = document.querySelectorAll("#task-setting");
   option.forEach((opt) => {
     opt.addEventListener("click", () => {
-      opt.classList.add(
+      let stylesList = [
         "before:content-trash",
         "before:font-fontawesome",
         "before:font-fa-solid",
@@ -130,15 +130,15 @@ let trashButton = () => {
         "before:-top-4",
         "before:right-1",
         "before:bg-white/50",
-        "before:p-1"
-      );
+        "before:p-1",
+      ];
+      opt.classList.add(...stylesList);
       opt.addEventListener("blur", () => {
-        opt.classList.remove("before:content-trash");
+        opt.classList.remove(...stylesList);
       });
     });
 
     // Here add functionality to the button
-    
   });
 };
 
