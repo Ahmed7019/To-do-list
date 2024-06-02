@@ -24,7 +24,7 @@ let createTask = (taskName) => {
     ></span>
   </label>
   </div>
-  <button class="absolute text-xl font-bold right-3 top-0 text-neutral-300 " id="task-setting">...</button>
+  <button class="absolute text-xl font-bold right-3 top-0 text-neutral-300" id="task-setting">...</button>
     `;
   task.classList.add(
     "relative",
@@ -43,6 +43,7 @@ let createTask = (taskName) => {
   );
   task.innerHTML = taskContent;
   tasksContainer.appendChild(task);
+  trashButton();
   let obj = {
     task: taskName,
     checked: false,
@@ -115,26 +116,28 @@ saveBtn.addEventListener("click", () => {
 });
 
 // Here add the psuedo element to delete the task on clicking the options button
-
-let option = document.querySelectorAll("#task-setting");
-option.forEach((opt) => {
-  opt.nextElementSibling.classList.remove("hidden");
-  opt.nextElementSibling.classList.add("block");
-  // opt.addEventListener("click", () => {
-  //   opt.classList.add(
-  //     "before:content-trash",
-  //     "before:font-fontawesome",
-  //     "before:font-fa-solid",
-  //     "before:text-sm",
-  //     "before:text-red-500",
-  //     "before:absolute",
-  //     "before:-top-4",
-  //     "before:right-1",
-  //     "before:bg-white/50",
-  //     "before:p-1"
-  //   );
-  // });
-});
+let trashButton = () => {
+  let option = document.querySelectorAll("#task-setting");
+  option.forEach((opt) => {
+    opt.addEventListener("click", () => {
+      opt.classList.add(
+        "before:content-trash",
+        "before:font-fontawesome",
+        "before:font-fa-solid",
+        "before:text-sm",
+        "before:text-red-500",
+        "before:absolute",
+        "before:-top-4",
+        "before:right-1",
+        "before:bg-white/50",
+        "before:p-1"
+      );
+      opt.addEventListener("blur", () => {
+        opt.classList.remove("before:content-trash");
+      });
+    });
+  });
+};
 
 // Show todays date on the screen
 
