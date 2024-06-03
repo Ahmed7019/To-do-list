@@ -119,40 +119,43 @@ saveBtn.addEventListener("click", () => {
 let trashButton = () => {
   let option = document.querySelectorAll("#task-setting");
   option.forEach((opt) => {
+    let delBtn = document.createElement("button");
     opt.addEventListener("click", () => {
-      let delBtn = document.createElement("button");
       let stylesList = [
         "text-sm",
         "text-red-500",
         "absolute",
-        "-top-8",
+        "-top-5",
         "z-1",
         "right-2",
         "bg-white",
-        "p-4",
-        "w-8",
+        "px-3",
+        "py-1",
+        "w-10",
         "flex",
         "items-center",
         "justify-center",
         "rounded-md",
       ];
-      opt.parentElement.appendChild(delBtn);
       delBtn.innerHTML = `<i class="fa-regular fa-trash-can"></i>`;
+      opt.parentElement.appendChild(delBtn);
+      // If the button is clicked remove the task
       delBtn.classList.add(...stylesList);
-      opt.addEventListener("blur", () => {
+      opt.addEventListener("dblclick", () => {
         delBtn.classList.remove(...stylesList);
         opt.parentElement.removeChild(delBtn);
       });
     });
-
-    // Here add functionality to the button
+    delBtn.addEventListener("click", () => {
+      deleteTask(opt.parentElement);
+    });
   });
 };
 
 // Create a delete function
 
 let deleteTask = (task) => {
-  document.removeChild(task);
+  task.parentElement.removeChild(task);
 };
 
 // Show todays date on the screen
