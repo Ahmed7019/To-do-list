@@ -120,21 +120,28 @@ let trashButton = () => {
   let option = document.querySelectorAll("#task-setting");
   option.forEach((opt) => {
     opt.addEventListener("click", () => {
+      let delBtn = document.createElement("button");
       let stylesList = [
-        "before:content-trash",
-        "before:font-fontawesome",
-        "before:font-fa-solid",
-        "before:text-sm",
-        "before:text-red-500",
-        "before:absolute",
-        "before:-top-4",
-        "before:right-1",
-        "before:bg-white/50",
-        "before:p-1",
+        "text-sm",
+        "text-red-500",
+        "absolute",
+        "-top-8",
+        "z-1",
+        "right-2",
+        "bg-white",
+        "p-4",
+        "w-8",
+        "flex",
+        "items-center",
+        "justify-center",
+        "rounded-md",
       ];
-      opt.classList.add(...stylesList);
+      opt.parentElement.appendChild(delBtn);
+      delBtn.innerHTML = `<i class="fa-regular fa-trash-can"></i>`;
+      delBtn.classList.add(...stylesList);
       opt.addEventListener("blur", () => {
-        opt.classList.remove(...stylesList);
+        delBtn.classList.remove(...stylesList);
+        opt.parentElement.removeChild(delBtn);
       });
     });
 
