@@ -13,21 +13,20 @@ let createTask = (taskName) => {
   let taskContent = `
     <p>${taskName}</p>
     <input type="checkbox" id="task-check">
-  <button class="absolute text-xl font-bold right-3 top-0 text-neutral-300" id="task-setting">...</button>
+  <button class="absolute text-xl font-bold right-3 top-0 text-green-950" id="task-setting">...</button>
     `;
   task.classList.add(
     "relative",
     "flex",
     "justify-between",
-    "bg-gradient-to-tr",
-    "from-neutral-500",
-    "via-neutral-700",
-    "to-neutral-900",
+    "bg-green-500",
     "items-center",
+    "border",
+    "border-green-600",
     "px-2",
     "py-8",
     "rounded-md",
-    "text-neutral-300",
+    "text-neutral-50",
     "text-lg"
   );
   task.innerHTML = taskContent;
