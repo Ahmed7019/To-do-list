@@ -14,11 +14,11 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="bg-gradient-to-r from-[#0f7478] via-[#68dfe6]  to-[#a3fc67] font-roboto">
+<body class="bg-green-600 font-roboto">
     <header>
         <div class="relative overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bW9ybmluZ3xlbnwwfDB8MHx8fDA%3D"
-                alt="sunrise" class="object-cover"/>
+            <img src="https://plus.unsplash.com/premium_photo-1705010662254-97e7d82cd182?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzN8fHRvJTIwZG98ZW58MHwwfDB8fHww"
+                alt="sunrise" class="object-cover" />
             <div class="absolute bottom-0 left-0 bg-transparent backdrop-blur-sm w-full h-20 text-white">
                 <!-- Here will show the date -->
                 <p class="text-lg left-8 top-4 relative" id="today-date">Today</p>
@@ -26,23 +26,13 @@
         </div>
     </header>
     <main class="mx-8">
-        <section class="bg-gradient-to-br from-neutral-200/50 via-neutral-600/50 to-neutral-800/50 backdrop-blur-md p-4 my-4 rounded-2xl w-full h-full">
-            <h1 class="text-2xl font-bold my-4">To do list</h1>
+        <section class="bg-green-200/70 backdrop-blur-md p-4 my-4 rounded-2xl w-full h-full text-neutral-50">
+            <h1 class="text-2xl font-bold my-4 text-green-950">My <span class="text-green-600">To do</span> list</h1>
             <!-- Section of the current tasks -->
             <section class="my-4">
                 <div>
                     <h2 class="text-xl font-semibold">My Tasks</h2>
                     <div class=" flex flex-col justify-between gap-y-4 my-4" id="task-container">
-                        <!-- <div>
-                            <p>task one</p>
-                            <label for="done">Completed</label>
-                            <input type="checkbox" name="done" id="">
-                        </div>
-                        <div>
-                            <p>task one</p>
-                            <label for="done">Completed</label>
-                            <input type="checkbox" name="done" id="">
-                        </div> -->
                     </div>
 
                     <div class="my-8" id="competed-tasks">
@@ -55,7 +45,8 @@
         <!-- Add button  -->
         <div class="fixed right-6 bottom-8">
             <button
-                class="bg-neutral-700/80 backdrop-blur-sm p-4 h-12 w-12 rounded-[50%] flex justify-center items-center hover:animate-spin" id="new-task">
+                class="bg-neutral-700/80 backdrop-blur-sm p-4 h-12 w-12 rounded-[50%] flex justify-center items-center hover:animate-spin"
+                id="new-task">
                 <i class="fa-solid fa-plus text-neutral-200 text-xl "></i>
             </button>
         </div>
@@ -68,7 +59,8 @@
                     <div
                         class="bg-gradient-to-tr from-zinc-200/50 via-teal-zinc/50 to-zinc-700/50 backdrop-blur-md w-[17.9rem] h-[9.9rem] left-[.1rem] top-[.1rem] rounded-lg absolute p-4 ">
                         <div class="flex gap-x-2 justify-end mb-8">
-                            <button class="px-2 py-1 bg-blue-500 backdrop-blur-md text-white text-sm  rounded-md disabled:bg-gradient-to-tr disabled:from-zinc-600 disabled:via-zinc-500 disabled:to-zinc-700 "
+                            <button
+                                class="px-2 py-1 bg-blue-500 backdrop-blur-md text-white text-sm  rounded-md disabled:bg-gradient-to-tr disabled:from-zinc-600 disabled:via-zinc-500 disabled:to-zinc-700 "
                                 id="save-btn" disabled>Add</button>
                             <button class="px-2 py-1 bg-neutral-50  backdrop-blur-md text-red-500 text-sm  rounded-md"
                                 id="close-btn">Close</button>
