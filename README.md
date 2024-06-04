@@ -32,4 +32,4 @@ Next I'll add the completed tasks section + the delete button
 
 Next make sure to delete the task from the local storage 
 
-Add the completed tasks sect
+Now the task is deleted from the local storgae and the screen
