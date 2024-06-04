@@ -3,7 +3,6 @@ let addTaskInput = document.querySelector("#input-task"),
   rmTaskBtn = document.querySelector("#remove-task"),
   newTask = document.querySelector("#new-task"),
   tasksContainer = document.querySelector("#task-container"),
-  completedTasks = document.querySelector("#competed-tasks"),
   taskPopup = document.querySelector("#task-info"); // The task information popup
 
 let myTasks = [];
@@ -13,17 +12,7 @@ let createTask = (taskName) => {
   let task = document.createElement("div");
   let taskContent = `
     <p>${taskName}</p>
-    <div class="flex justify-center items-center">
-  <label class="container">
-    <input
-      class="peer cursor-pointer hidden after:opacity-100"
-      type="checkbox"
-    />
-    <span
-      class="inline-block w-5 h-5 border-2 border-white relative cursor-pointer after:content-[''] after:absolute after:top-2/4 after:left-2/4 after:-translate-x-1/2 after:-translate-y-1/2 after:w-[10px] after:h-[10px] after:bg-[#cfcfcf] after:rounded-[2px] after:opacity-0 peer-checked:after:opacity-100"
-    ></span>
-  </label>
-  </div>
+    <input type="checkbox" id="task-check">
   <button class="absolute text-xl font-bold right-3 top-0 text-neutral-300" id="task-setting">...</button>
     `;
   task.classList.add(
@@ -202,3 +191,21 @@ function months(month) {
 }
 
 todayParagraph.textContent = `${days(myDate.getDay())} / ${months(myDate.getMonth())} / ${myDate.getFullYear()}`;
+
+// Here add the completed section
+let completedTasks = document.querySelector("#competed-tasks");
+let taskCheck = document.querySelectorAll("#task-check");
+taskCheck.forEach((check) => {
+  check.addEventListener("click", () => {
+    console.log("Checked");
+    if (check.checked == true) {
+      checkedTask(check.parentElement);
+    } else {
+      ("");
+    }
+  });
+});
+let checkedTask = (task) => {
+  completedTasks.appendChild(task);
+  // window.localStorage.setItem("my tasks", JSON.stringify(myTasks));
+};
