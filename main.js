@@ -156,6 +156,11 @@ let trashButton = () => {
 
 let deleteTask = (task) => {
   task.parentElement.removeChild(task);
+  let index = myTasks.findIndex((task) => task.title === task.title);
+  if (index !== -1) {
+    myTasks.splice(index, 1);
+    localStorage.setItem("my tasks", JSON.stringify(myTasks));
+  }
 };
 
 // Show todays date on the screen
