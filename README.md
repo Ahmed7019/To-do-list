@@ -33,3 +33,5 @@ Next I'll add the completed tasks section + the delete button
 Next make sure to delete the task from the local storage 
 
 Now the task is deleted from the local storgae and the screen
+
+Changed some event listners for the deleting process
