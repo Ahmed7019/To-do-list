@@ -12,7 +12,6 @@ let createTask = (taskName) => {
   let task = document.createElement("div");
   let taskContent = `
     <p>${taskName}</p>
-    <input type="checkbox" id="task-check">
   <button class="absolute text-xl font-bold right-3 top-0 text-green-950" id="task-setting">...</button>
     `;
   task.classList.add(
@@ -107,29 +106,55 @@ saveBtn.addEventListener("click", () => {
 let trashButton = () => {
   let option = document.querySelectorAll("#task-setting");
   option.forEach((opt) => {
+    let optionContainer = document.createElement("div"),
+      completed = document.createElement("button");
     let delBtn = document.createElement("button");
     opt.addEventListener("click", () => {
       let stylesList = [
         "text-sm",
         "text-red-500",
-        "absolute",
-        "-top-5",
-        "z-1",
-        "right-2",
-        "bg-white",
-        "px-3",
-        "py-1",
-        "w-10",
+        "bg-neutral-50/50",
+        "w-full",
         "flex",
         "items-center",
         "justify-center",
         "rounded-md",
       ];
-      delBtn.innerHTML = `<i class="fa-regular fa-trash-can"></i>`;
-      opt.appendChild(delBtn);
+      delBtn.innerHTML = `<i class="fa-regular fa-trash-can"></i> Delete`;
+      optionContainer.appendChild(delBtn);
+      optionContainer.appendChild(completed);
+      completed.textContent = "Mark as completed";
+      opt.appendChild(optionContainer);
       // If the button is clicked remove the task
       delBtn.classList.add(...stylesList);
 
+      // Array of container styles
+      let containerStyling = [
+        "flex",
+        "flex-col",
+        "justify-center",
+        "items-center",
+        "gap-y-2",
+        "bg-green-300",
+        "text-blue-400",
+        "text-sm",
+        "absolute",
+        "-top-5",
+        "z-1",
+        "right-2",
+        "w-40",
+        "px-3",
+        "py-1",
+        "rounded-lg"
+      ];
+      optionContainer.classList.add(...containerStyling);
+
+      // completed button styling 
+      completed.classList.add(
+        "bg-neutral-50/50",
+        "w-full",
+        "rounded-md"
+      )
       delBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         deleteTask(opt.parentElement);
@@ -146,8 +171,8 @@ let trashButton = () => {
     });
 
     let hideDelBtn = () => {
-      if (opt.contains(delBtn)) {
-        opt.removeChild(delBtn);
+      if (opt.contains(optionContainer)) {
+        opt.removeChild(optionContainer);
       }
     };
   });
@@ -206,18 +231,10 @@ todayParagraph.textContent = `${days(myDate.getDay())} / ${months(myDate.getMont
 
 // Here add the completed section
 let completedTasks = document.querySelector("#competed-tasks");
-let taskCheck = document.querySelectorAll("#task-check");
-taskCheck.forEach((check) => {
-  check.addEventListener("click", () => {
-    console.log("Checked");
-    if (check.checked == true) {
-      checkedTask(check.parentElement);
-    } else {
-      ("");
-    }
-  });
-});
+
 let checkedTask = (task) => {
-  completedTasks.appendChild(task);
-  // window.localStorage.setItem("my tasks", JSON.stringify(myTasks));
+  completedTasks.innerHTML = `${task}`;
+  window.localStorage.setItem("my tasks", JSON.stringify(myTasks));
 };
+
+// checkedTask(check.parentElement);
