@@ -146,7 +146,7 @@ let trashButton = () => {
     });
 
     let hideDelBtn = () => {
-      if(opt.contains(delBtn)){
+      if (opt.contains(delBtn)) {
         opt.removeChild(delBtn);
       }
     };
@@ -156,7 +156,7 @@ let trashButton = () => {
 // Create a delete function
 
 let deleteTask = (task) => {
-  task.parentElement.removeChild(task); 
+  task.parentElement.removeChild(task);
   let index = myTasks.findIndex((task) => task.title === task.title);
   if (index !== -1) {
     myTasks.splice(index, 1);
