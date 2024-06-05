@@ -143,24 +143,29 @@ let trashButton = () => {
         "right-1",
         "w-40",
         "p-1",
-        "rounded-lg"
+        "rounded-lg",
       ];
       optionContainer.classList.add(...containerStyling);
 
-      // completed button styling 
+      // completed button styling
       completed.classList.add(
         "bg-neutral-50/50",
         "w-full",
         "text-green-950",
         "rounded-md"
-      )
+      );
+
+      // Now add event listner to the completed task
+      completed.addEventListener("click", (e) => {
+        e.stopPropagation();
+        checkedTask(opt.parentElement);
+      });
       delBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         deleteTask(optionContainer.parentElement.parentElement);
       });
 
       opt.addEventListener("blur", () => {
-        // Use a timeout to allow for the click event on delBtn to fire first
         hideDelBtn();
       });
     });
@@ -169,8 +174,12 @@ let trashButton = () => {
       e.preventDefault();
     });
 
+    completed.addEventListener("mousedown", (e) => {
+      e.preventDefault();
+    });
+
     let hideDelBtn = () => {
-      if (opt.contains(optionContainer)) {
+      if (opt.parentElement.contains(optionContainer)) {
         opt.removeChild(optionContainer);
       }
     };
@@ -230,9 +239,10 @@ todayParagraph.textContent = `${days(myDate.getDay())} / ${months(myDate.getMont
 
 // Here add the completed section
 let completedTasks = document.querySelector("#competed-tasks");
-
 let checkedTask = (task) => {
-  completedTasks.innerHTML = `${task}`;
+  let index = myTasks.findIndex((task) => task.title === task.title);
+  myTasks[index].checked = true;
+  completedTasks.appendChild(task);
   window.localStorage.setItem("my tasks", JSON.stringify(myTasks));
 };
 
