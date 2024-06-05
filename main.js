@@ -126,17 +126,29 @@ let trashButton = () => {
         "rounded-md",
       ];
       delBtn.innerHTML = `<i class="fa-regular fa-trash-can"></i>`;
-      opt.parentElement.appendChild(delBtn);
+      opt.appendChild(delBtn);
       // If the button is clicked remove the task
       delBtn.classList.add(...stylesList);
-      opt.addEventListener("dblclick", () => {
-        delBtn.classList.remove(...stylesList);
-        opt.parentElement.removeChild(delBtn);
+
+      delBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        deleteTask(opt.parentElement);
+      });
+
+      opt.addEventListener("blur", () => {
+        // Use a timeout to allow for the click event on delBtn to fire first
+        hideDelBtn();
       });
     });
-    delBtn.addEventListener("click", () => {
-      deleteTask(opt.parentElement);
+
+    delBtn.addEventListener("mousedown", (e) => {
+      e.preventDefault();
     });
+
+    let hideDelBtn = () => {
+      opt.removeChild(delBtn);
+      delBtn.classList.remove(...stylesList);
+    };
   });
 };
 
