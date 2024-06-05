@@ -134,17 +134,15 @@ let trashButton = () => {
         "flex-col",
         "justify-center",
         "items-center",
-        "gap-y-2",
+        "gap-y-1",
         "bg-green-300",
-        "text-blue-400",
         "text-sm",
         "absolute",
         "-top-5",
         "z-1",
-        "right-2",
+        "right-1",
         "w-40",
-        "px-3",
-        "py-1",
+        "p-1",
         "rounded-lg"
       ];
       optionContainer.classList.add(...containerStyling);
@@ -153,11 +151,12 @@ let trashButton = () => {
       completed.classList.add(
         "bg-neutral-50/50",
         "w-full",
+        "text-green-950",
         "rounded-md"
       )
       delBtn.addEventListener("click", (e) => {
         e.stopPropagation();
-        deleteTask(opt.parentElement);
+        deleteTask(optionContainer.parentElement.parentElement);
       });
 
       opt.addEventListener("blur", () => {
