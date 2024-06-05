@@ -45,7 +45,26 @@ window.onload = () => {
   let tasksArray = JSON.parse(window.localStorage.getItem("my tasks"));
   if (tasksArray.length > 0) {
     for (let i = 0; i < tasksArray.length; i++) {
-      createTask(tasksArray[i].task);
+      if (tasksArray[i].checked === true) {
+        let task = document.createElement("div");
+        task.classList.add(
+          "relative",
+          "flex",
+          "justify-between",
+          "bg-green-500",
+          "items-center",
+          "border",
+          "border-green-600",
+          "px-2",
+          "py-8",
+          "rounded-md",
+          "text-neutral-50",
+          "text-lg"
+        );
+        task.innerHTML = `${tasksArray[i].task}`;
+        completedTasks.appendChild(task);
+        window.localStorage.setItem("my tasks", JSON.stringify(tasksArray));
+      } else createTask(tasksArray[i].task);
     }
   }
 };
@@ -242,8 +261,6 @@ let completedTasks = document.querySelector("#competed-tasks");
 let checkedTask = (task) => {
   let index = myTasks.findIndex((task) => task.title === task.title);
   myTasks[index].checked = true;
-  completedTasks.appendChild(task);
   window.localStorage.setItem("my tasks", JSON.stringify(myTasks));
+  completedTasks.appendChild(task);
 };
-
-// checkedTask(check.parentElement);
