@@ -8,7 +8,7 @@ let addTaskInput = document.querySelector("#input-task"),
 let myTasks = [];
 // First add a function to create new task
 
-let createTask = (taskName) => {
+let createTask = (taskName, status = false) => {
   let task = document.createElement("div");
   let taskContent = `
     <p>${taskName}</p>
@@ -28,14 +28,17 @@ let createTask = (taskName) => {
     "text-neutral-50",
     "text-lg"
   );
+  class newTask {
+    constructor(taskName, taskChecked) {
+      this.taskName = taskName;
+      this.taskChecked = taskChecked;
+    }
+  }
   task.innerHTML = taskContent;
   tasksContainer.appendChild(task);
+  let myTask = new newTask(taskName, status);
+  myTasks.push(myTask);
   trashButton();
-  let obj = {
-    task: taskName,
-    checked: false,
-  };
-  myTasks.push(obj);
   window.localStorage.setItem("my tasks", JSON.stringify(myTasks));
 };
 
@@ -61,10 +64,9 @@ window.onload = () => {
           "text-neutral-50",
           "text-lg"
         );
-        task.innerHTML = `${tasksArray[i].task}`;
+        task.innerHTML = `${tasksArray[i].taskName}`;
         completedTasks.appendChild(task);
-        window.localStorage.setItem("my tasks", JSON.stringify(tasksArray));
-      } else createTask(tasksArray[i].task);
+      } else createTask(tasksArray[i].taskName);
     }
   }
 };
@@ -254,13 +256,15 @@ function months(month) {
   return monthsOfTheYear[month];
 }
 
-todayParagraph.textContent = `${days(myDate.getDay())} / ${months(myDate.getMonth())} / ${myDate.getFullYear()}`;
+todayParagraph.appendChild(document.createElement("p")).textContent =
+  `${days(myDate.getDay())}`;
+todayParagraph.textContent = `${myDate.getDate()} / ${months(myDate.getMonth())} / ${myDate.getFullYear()}`;
 
 // Here add the completed section
 let completedTasks = document.querySelector("#competed-tasks");
 let checkedTask = (task) => {
   let index = myTasks.findIndex((task) => task.title === task.title);
-  myTasks[index].checked = true;
+  myTasks[index].taskChecked = true;
   window.localStorage.setItem("my tasks", JSON.stringify(myTasks));
   completedTasks.appendChild(task);
 };
