@@ -45,10 +45,10 @@ let createTask = (taskName, status = false) => {
 // Retrive the tasks on window load
 
 window.onload = () => {
-  let tasksArray = JSON.parse(window.localStorage.getItem("my tasks"));
-  if (tasksArray.length > 0) {
-    for (let i = 0; i < tasksArray.length; i++) {
-      if (tasksArray[i].checked === true) {
+  let taskArray = JSON.parse(window.localStorage.getItem("my tasks"));
+  if (taskArray.length > 0) {
+    for (let i = 0; i < taskArray.length; i++) {
+      if (taskArray[i].taskChecked) {
         let task = document.createElement("div");
         task.classList.add(
           "relative",
@@ -64,10 +64,11 @@ window.onload = () => {
           "text-neutral-50",
           "text-lg"
         );
-        task.innerHTML = `${tasksArray[i].taskName}`;
+        task.innerHTML = `${taskArray[i].taskName}`;
         completedTasks.appendChild(task);
-      } else createTask(tasksArray[i].taskName);
+      } else createTask(taskArray[i].taskName);
     }
+    // window.localStorage.setItem("my tasks", myTasks);
   }
 };
 
@@ -179,7 +180,7 @@ let trashButton = () => {
       // Now add event listner to the completed task
       completed.addEventListener("click", (e) => {
         e.stopPropagation();
-        checkedTask(opt.parentElement);
+        checkedTask(opt.parentElement.childNodes[1]);
       });
       delBtn.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -263,8 +264,12 @@ todayParagraph.textContent = `${myDate.getDate()} / ${months(myDate.getMonth())}
 // Here add the completed section
 let completedTasks = document.querySelector("#competed-tasks");
 let checkedTask = (task) => {
-  let index = myTasks.findIndex((task) => task.title === task.title);
-  myTasks[index].taskChecked = true;
-  window.localStorage.setItem("my tasks", JSON.stringify(myTasks));
-  completedTasks.appendChild(task);
+  for (let i = 0; i < myTasks.length; i++) {
+    myTasks[i].taskName == task.innerHTML
+      ? (myTasks[i].taskChecked = true)
+      : (myTasks[i].taskChecked = false);
+      
+    }
+    localStorage.setItem("my tasks", JSON.stringify(myTasks));
+  completedTasks.appendChild(task.parentElement);
 };
