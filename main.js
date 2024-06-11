@@ -10,6 +10,7 @@ let myTasks = [];
 
 let createTask = (taskName, status = false) => {
   let task = document.createElement("div");
+
   let taskContent = `
     <p>${taskName}</p>
   <button class="absolute text-xl font-bold right-3 top-0 text-green-950" id="task-setting">...</button>
@@ -29,17 +30,20 @@ let createTask = (taskName, status = false) => {
     "text-lg"
   );
   class newTask {
-    constructor(taskName, taskChecked) {
+    constructor(id, taskName, taskChecked) {
+      this.id = id;
       this.taskName = taskName;
       this.taskChecked = taskChecked;
     }
   }
   task.innerHTML = taskContent;
   tasksContainer.appendChild(task);
-  let myTask = new newTask(taskName, status);
+  let id = new Date().getTime();
+  let myTask = new newTask(id, taskName, status);
+  task.setAttribute("id", myTask.id);
   myTasks.push(myTask);
   trashButton();
-  window.localStorage.setItem("my tasks", JSON.stringify(myTasks));
+  saveDataTo(myTasks);
 };
 
 // Retrive the tasks on window load
@@ -48,27 +52,8 @@ window.onload = () => {
   let taskArray = JSON.parse(window.localStorage.getItem("my tasks"));
   if (taskArray.length > 0) {
     for (let i = 0; i < taskArray.length; i++) {
-      if (taskArray[i].taskChecked) {
-        let task = document.createElement("div");
-        task.classList.add(
-          "relative",
-          "flex",
-          "justify-between",
-          "bg-green-500",
-          "items-center",
-          "border",
-          "border-green-600",
-          "px-2",
-          "py-8",
-          "rounded-md",
-          "text-neutral-50",
-          "text-lg"
-        );
-        task.innerHTML = `${taskArray[i].taskName}`;
-        completedTasks.appendChild(task);
-      } else createTask(taskArray[i].taskName);
+      createTask(taskArray[i].taskName, taskArray[i].taskChecked);
     }
-    // window.localStorage.setItem("my tasks", myTasks);
   }
 };
 
@@ -142,6 +127,7 @@ let trashButton = () => {
         "justify-center",
         "rounded-md",
       ];
+      delBtn.classList.add("flex", "justify-center", "items-center", "gap-x-2");
       delBtn.innerHTML = `<i class="fa-regular fa-trash-can"></i> Delete`;
       optionContainer.appendChild(delBtn);
       optionContainer.appendChild(completed);
@@ -180,7 +166,9 @@ let trashButton = () => {
       // Now add event listner to the completed task
       completed.addEventListener("click", (e) => {
         e.stopPropagation();
-        checkedTask(opt.parentElement.childNodes[1]);
+        opt.parentElement.classList.remove("bg-green-500");
+        opt.parentElement.classList.add("bg-green-900");
+        checkedTask(opt.parentElement.getAttribute("id"));
       });
       delBtn.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -263,13 +251,17 @@ todayParagraph.textContent = `${myDate.getDate()} / ${months(myDate.getMonth())}
 
 // Here add the completed section
 let completedTasks = document.querySelector("#competed-tasks");
-let checkedTask = (task) => {
+let checkedTask = (id) => {
   for (let i = 0; i < myTasks.length; i++) {
-    myTasks[i].taskName == task.innerHTML
-      ? (myTasks[i].taskChecked = true)
-      : (myTasks[i].taskChecked = false);
-      
-    }
-    localStorage.setItem("my tasks", JSON.stringify(myTasks));
-  completedTasks.appendChild(task.parentElement);
+    if (myTasks[i].id == id) {
+      myTasks[i].taskChecked = true;
+    } else myTasks[i].taskChecked = false;
+  }
+  saveDataTo(myTasks);
 };
+
+// Create a function to save date
+
+function saveDataTo(array) {
+  localStorage.setItem("my tasks", JSON.stringify(array));
+}
