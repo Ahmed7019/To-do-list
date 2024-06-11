@@ -40,6 +40,10 @@ let createTask = (taskName, status = false) => {
   tasksContainer.appendChild(task);
   let id = new Date().getTime();
   let myTask = new newTask(id, taskName, status);
+  if (status) {
+    task.classList.remove("bg-green-500");
+    task.classList.add("bg-green-900");
+  }
   task.setAttribute("id", myTask.id);
   myTasks.push(myTask);
   trashButton();
@@ -254,8 +258,8 @@ let completedTasks = document.querySelector("#competed-tasks");
 let checkedTask = (id) => {
   for (let i = 0; i < myTasks.length; i++) {
     if (myTasks[i].id == id) {
-      myTasks[i].taskChecked = true;
-    } else myTasks[i].taskChecked = false;
+      myTasks[i].taskChecked == false ? (myTasks[i].taskChecked = true) : "";
+    }
   }
   saveDataTo(myTasks);
 };
